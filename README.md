@@ -1,2 +1,2 @@
-# FinalProjectBasketballShooter
+# Final Project Basketball Shooter
  
