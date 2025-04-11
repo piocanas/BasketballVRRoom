@@ -7,6 +7,8 @@ namespace Basketball
 {
     public class ShotMaker : MonoBehaviour
     {
+        public BallTrajectoryDrawer trajectoryDrawer;
+        
         [Header("Hoop Settings")]
         public Transform hoopTransform;  // Assign the hoop's GameObject (backboard, rim, etc.)
         public Vector3 hoopOffset = new Vector3(0, 0, 0);  // Adjust to set the exact rim center
@@ -47,7 +49,7 @@ namespace Basketball
         public AudioSource audioSource;
         public AudioClip rimHitSound;
         private Rigidbody rb;
-        private bool isThrown = false;
+        public bool isThrown = false;
         public string shotType = "None";
         public float assistStartFactor = 0.6f;
         private Vector3 startingPosition;
@@ -166,7 +168,10 @@ namespace Basketball
 
             UpdateDebugText($"Shot Type: {shotType}");
 
-
+            if (trajectoryDrawer != null)
+            {
+                trajectoryDrawer.ShowTrajectory(transform.position, rb.velocity);
+            }
         }
 
         private void UpdateDebugText(string message)

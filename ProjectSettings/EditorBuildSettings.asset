@@ -6,11 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pio room.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/first.unity
+    guid: e07cf6972cbfcaf4ab7103204c9ec3e6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed72be55522c8448bae8b0d66fa21adf,
       type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 1bdf047d6811d55499be8f3d55b88caf,
+      type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ad4050bc0deda4e238354e959df0f1f4,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b53b89ca9241447b0a56ff61fa931615,
