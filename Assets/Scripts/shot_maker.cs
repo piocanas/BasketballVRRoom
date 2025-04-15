@@ -118,26 +118,18 @@ namespace Basketball
         {
             float assistStrength = 0f;
 
-            switch (shotType)
-            {
-                case "Layup":
-                    assistStrength = layupAssistStrength;
-                    break;
-                case "MidRange":
-                    assistStrength = midRangeAssistStrength;
-                    break;
-                case "ThreePointer":
-                    assistStrength = threePointAssistStrength;
-                    break;
-            }
-
+            //Calculate normalized direction from ball to hoop
             Vector3 directionToHoop = (hoopCenter - transform.position).normalized;
+            //How far the ball has trabelled since release
             float ballTravelDistance = Vector3.Distance(startingPosition, transform.position);
+            //Total distance from release point to hoop
             float totalDistance = Vector3.Distance(startingPosition, hoopCenter);
 
+            //Assist factor grows with travel distance (prevents immediate correction at release)
             float assistFactor = Mathf.Clamp01(ballTravelDistance / (totalDistance * assistStartFactor));
             float scaledAssistStrength = assistStrength * assistFactor;
 
+            //Apply assist to horizontal axes
             Vector3 newVelocity = rb.velocity;
             newVelocity.x = Mathf.Lerp(newVelocity.x, directionToHoop.x * newVelocity.magnitude, scaledAssistStrength * Time.fixedDeltaTime);
             newVelocity.z = Mathf.Lerp(newVelocity.z, directionToHoop.z * newVelocity.magnitude, scaledAssistStrength * Time.fixedDeltaTime);
