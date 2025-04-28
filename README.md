@@ -48,9 +48,9 @@ adb install -r path-to-apk.apk
 
 ## Assets
 
-- Court, hoop, and ball models: Unity Asset Store and Sketchfab
-- Custom rim created in Blender for more realistic bounce behavior
-- Audio from open license sources such as freesound.org and OpenGameArt
+- Hoop, and ball models: Unity Asset Store and Sketchfab
+- Court created in Blender 
+- Audio from open license sources such as pixabay.com and YouTube
 
 ## License
 
